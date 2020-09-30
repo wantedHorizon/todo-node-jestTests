@@ -6,43 +6,43 @@ describe('todos', () => {
 
     beforeEach(() => {
         database.data = [{
-            task: 'task1',
-            done: false,
-            id: 1,
-            delete: false
-        },
-        {
-            task: 'task2',
-            done: false,
-            id: 2,
-            delete: false
-        }, {
-            task: 'task3',
-            done: false,
-            id: 3,
-            delete: false
-        }, {
-            task: 'task4',
-            done: true,
-            id: 4,
-            delete: false
-        }, {
-            task: 'task5',
-            done: true,
-            id: 5,
-            delete: false
-        }, {
-            task: 'task6',
-            done: false,
-            id: 6,
-            delete: false
-        }, {
-            task: 'task7',
-            done: false,
-            id: 7,
-            delete: false
-        }
-    ];
+                task: 'task1',
+                done: false,
+                id: 1,
+                delete: false
+            },
+            {
+                task: 'task2',
+                done: false,
+                id: 2,
+                delete: false
+            }, {
+                task: 'task3',
+                done: false,
+                id: 3,
+                delete: false
+            }, {
+                task: 'task4',
+                done: true,
+                id: 4,
+                delete: false
+            }, {
+                task: 'task5',
+                done: true,
+                id: 5,
+                delete: false
+            }, {
+                task: 'task6',
+                done: false,
+                id: 6,
+                delete: false
+            }, {
+                task: 'task7',
+                done: false,
+                id: 7,
+                delete: false
+            }
+        ];
     })
     describe('toggleDone', () => {
         it('should toggle the done prop of object todo', () => {
@@ -122,9 +122,9 @@ describe('todos', () => {
                 id: 1,
                 delete: false
             }
-            const task2 = Object.assign({},task);
-            task2.delete =true;
-            database.data = [ 
+            const task2 = Object.assign({}, task);
+            task2.delete = true;
+            database.data = [
                 task,
                 task2
             ]
@@ -133,7 +133,11 @@ describe('todos', () => {
             const result = todos.list();
 
             //Assert
-            expect(result).toEqual([{task:task.task, id:task.id, done:task.done}]);
+            expect(result).toEqual([{
+                task: task.task,
+                id: task.id,
+                done: task.done
+            }]);
         });
 
 
@@ -155,11 +159,15 @@ describe('todos', () => {
             //Arrange
 
             database.data.forEach(todo => {
-                todo.done= true;
+                todo.done = true;
             });
 
             const expected = database.data.map(todo => {
-                return {task: todo.task, done: true, id:todo.id}
+                return {
+                    task: todo.task,
+                    done: true,
+                    id: todo.id
+                }
             });
             //Act
             const result = todos.list();
@@ -172,27 +180,32 @@ describe('todos', () => {
 
         it('test sort of list by single not done', () => {
             //Arrange   
-           
+
             database.data.forEach(todo => {
-                todo.done= true;
+                todo.done = true;
             });
-            
+
             const expected = database.data.map(todo => {
-                return {task: todo.task, done: todo.done, id:todo.id}
+                return {
+                    task: todo.task,
+                    done: todo.done,
+                    id: todo.id
+                }
             });
-            
-            
+
+
             database.data.push({
-                task:'task15',
+                task: 'task15',
                 done: false,
                 id: 15,
-                delete:false
+                delete: false
             })
 
-            expected.unshift({task:'task15',
-            done: false,
-            id: 15
-        })
+            expected.unshift({
+                task: 'task15',
+                done: false,
+                id: 15
+            })
 
 
             //Act

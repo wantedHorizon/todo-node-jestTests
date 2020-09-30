@@ -1,4 +1,3 @@
-
 const database = require('./database');
 const readlineSync = require('readline-sync');
 
@@ -43,7 +42,13 @@ const list = () => {
             }
 
         })
-        .map(todo => { return { task: todo.task, done: todo.done, id: todo.id } });
+        .map(todo => {
+            return {
+                task: todo.task,
+                done: todo.done,
+                id: todo.id
+            }
+        });
 }
 
 
@@ -91,14 +96,14 @@ const startUI = () => {
         op1 = displayOptions();
         console.log(op1);
         switch (op1) {
-            case 0://edit task
+            case 0: //edit task
                 editTask = chooseTask(database.data.filter(t => !t.delete));
-                if(editTask < 0){
+                if (editTask < 0) {
                     done = true;
                     break;
                 }
                 editOption = displayEditOptions();
-                if (editOption < 0 ) {
+                if (editOption < 0) {
                     done = true;
                     break;
                 }
@@ -112,7 +117,7 @@ const startUI = () => {
                 }
                 break;
 
-            case 1:// view all tasks
+            case 1: // view all tasks
                 console.log(list());
                 break;
 
