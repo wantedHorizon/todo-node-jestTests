@@ -1,0 +1,18 @@
+{
+  "name": "todos",
+  "version": "1.0.0",
+  "main": "todos.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "test1": "jest"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "readline-sync": "^1.4.10"
+  },
+  "devDependencies": {
+    "jets": "^0.14.1"
+  },
+  "description": ""
+}
